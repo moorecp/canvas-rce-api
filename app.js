@@ -1,7 +1,5 @@
 "use strict";
 
-require("dotenv").config();
-
 const container = require("./app/container");
 const _application = require("./app/application");
 

@@ -1,7 +1,6 @@
 "use strict";
 
-const stats = require("./middleware/stats");
-const statsdKey = stats.actionKeyMiddleware;
+const { actionKeyMiddleware: statsdKey } = require("./middleware/stats");
 const _api = require("./api");
 const _auth = require("./middleware/auth");
 

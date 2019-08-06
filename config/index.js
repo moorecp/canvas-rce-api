@@ -2,6 +2,5 @@
 
 module.exports = {
   app: require("./app"),
-  token: require("./token"),
-  stats: require("./stats")
+  token: require("./token")
 };
