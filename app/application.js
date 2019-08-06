@@ -11,12 +11,9 @@ function inject(provide) {
 
 function init(env, routes, logger, app) {
   withMiddleware(app, wrappedApp => routes(wrappedApp));
-  const port = env.get("PORT", () => 3000);
   return {
     listen() {
-      const server = app.listen(port);
-      logger.log(`Rich Content Service listening on port ${port}`);
-      return server;
+      return app;
     }
   };
 }

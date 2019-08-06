@@ -42,6 +42,8 @@
     "mocha_env": "test"
   },
   "scripts": {
+    "build": "rm canvas-rce-api.zip; zip -r --exclude=*.git* canvas-rce-api.zip .",
+    "deploy": "aws lambda update-function-code --function-name canvas-rce-api --zip-file fileb://canvas-rce-api.zip",
     "lint": "eslint \"app/**/*.js\" \"test/**/*.js\" \"shared/**/*.js\"",
     "test": "mocha --exit -r dotenv/config 'test/{service,shared}/**/*.test.js'",
     "test-cov": "cross-env BABEL_ENV=test nyc -r html  node_modules/.bin/mocha --exit -r dotenv/config -- 'test/{service,shared}/**/*.test.js'",
@@ -57,6 +59,8 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.504.0",
+    "aws-serverless-express": "^3.3.6",
     "body-parser": "^1.18.3",
     "cors": "2.7.1",
     "dotenv": "^5.0.1",
